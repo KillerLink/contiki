@@ -261,7 +261,7 @@ ns_input(void)
 
   addr = uip_ds6_addr_lookup(&UIP_ND6_NS_BUF->tgtipaddr);
   if(addr != NULL) {
-    if(uip_is_addr_unspecified(&UIP_IP_BUF->srcipaddr)) {
+	if(uip_is_addr_unspecified(&UIP_IP_BUF->srcipaddr)) {
       /* DAD CASE */
 #if UIP_ND6_DEF_MAXDADNS > 0
 #if UIP_CONF_IPV6_CHECKS
@@ -568,7 +568,7 @@ na_input(void)
         if(is_override || !is_llchange || nd6_opt_llao == NULL) {
           if(nd6_opt_llao != NULL && is_llchange) {
             if(!extract_lladdr_from_llao_aligned(&lladdr_aligned) ||
-               nbr_table_update_lladdr((const linkaddr_t *) lladdr, (const linkaddr_t *) &lladdr_aligned, 1) == 0) {
+               nbr_table_update_lladdr((const linkaddr_t *) lladdr, (const linkaddr_t *) &lladdr_aligned, 0) == 0) {
               /* failed to update the lladdr */
               goto discard;
             }
