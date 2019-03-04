@@ -439,13 +439,26 @@ typedef uint32_t rtimer_clock_t;
 #define UIP_CONF_BUFFER_SIZE              1300
 #endif
 
+#ifndef UIP_CONF_IPV6_QUEUE_PKT
 #define UIP_CONF_IPV6_QUEUE_PKT              0
+#endif
+
+#ifndef UIP_CONF_IPV6_CHECKS
 #define UIP_CONF_IPV6_CHECKS                 1
+#endif
+
+#ifndef UIP_CONF_IPV6_REASSEMBLY
 #define UIP_CONF_IPV6_REASSEMBLY             0
+#endif
+
+#ifndef UIP_CONF_MAX_LISTENPORTS
 #define UIP_CONF_MAX_LISTENPORTS             8
+#endif
 
 /* 6lowpan */
+#ifndef SICSLOWPAN_CONF_COMPRESSION
 #define SICSLOWPAN_CONF_COMPRESSION          SICSLOWPAN_COMPRESSION_HC06
+#endif
 #ifndef SICSLOWPAN_CONF_COMPRESSION_THRESHOLD
 #define SICSLOWPAN_CONF_COMPRESSION_THRESHOLD 63
 #endif
@@ -455,7 +468,9 @@ typedef uint32_t rtimer_clock_t;
 #define SICSLOWPAN_CONF_MAXAGE               8
 
 /* Define our IPv6 prefixes/contexts here */
+#ifndef SICSLOWPAN_CONF_MAX_ADDR_CONTEXTS
 #define SICSLOWPAN_CONF_MAX_ADDR_CONTEXTS    1
+#endif
 #ifndef SICSLOWPAN_CONF_ADDR_CONTEXT_0
 #define SICSLOWPAN_CONF_ADDR_CONTEXT_0 { \
   addr_contexts[0].prefix[0] = UIP_DS6_DEFAULT_PREFIX_0; \

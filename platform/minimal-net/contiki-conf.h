@@ -157,7 +157,9 @@ typedef unsigned short uip_stats_t;
 #define UIP_CONF_UDP_CHECKSUMS        1
 
 /* Not used but avoids compile errors while sicslowpan.c is being developed */
+#ifndef SICSLOWPAN_CONF_COMPRESSION
 #define SICSLOWPAN_CONF_COMPRESSION       SICSLOWPAN_COMPRESSION_HC06
+#endif
 
 #define NETSTACK_CONF_LINUXRADIO_DEV "wpan0"
 
